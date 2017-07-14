@@ -18,4 +18,4 @@ For more information, you can contact us via edilsonacjr@gmail.com or rs_lucas@o
 
 
 
-Best, Edilson Jr. and Lucas.
+Best.
