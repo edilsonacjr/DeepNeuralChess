@@ -7,7 +7,7 @@ This code has the following dependencies:
 - TensorFlow or Theano
 - Keras
 - NumPy
-- ython-chess
+- python-chess
 
 
 ### Citation[under construction]
