@@ -1,0 +1,2 @@
+model_checkpoint_path: "td100its.ckpt"
+all_model_checkpoint_paths: "td100its.ckpt"
