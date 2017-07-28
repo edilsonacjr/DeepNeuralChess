@@ -70,7 +70,7 @@ class NeuralGiraffe:
     def fit(self, X_input_dic, y, epochs=50, batch_size=1000, shuffle=True, stopped=False):
         callbacks_list = []
         if self.checkpoint:
-            checkpoint = ModelCheckpoint(self.cp_filename, monitor='val_mae', verbose=1, save_best_only=True,
+            checkpoint = ModelCheckpoint(self.cp_filename, monitor='val_loss', verbose=1, save_best_only=True,
                                          mode='auto')
             callbacks_list.append(checkpoint)
 
