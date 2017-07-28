@@ -22,13 +22,13 @@ class NeuralGiraffe:
 
     def build(self):
 
-        input1 = Input(shape=(self.input1_dim, ), dtype='int32', name='input1')
+        input1 = Input(shape=(self.input1_dim, ), dtype='float32', name='input1')
         dense1 = Dense(20, activation='relu')(input1)
 
-        input2 = Input(shape=(self.input2_dim,), dtype='int32', name='input2')
+        input2 = Input(shape=(self.input2_dim,), dtype='float32', name='input2')
         dense2 = Dense(100, activation='relu')(input2)
 
-        input3 = Input(shape=(self.input3_dim,), dtype='int32', name='input3')
+        input3 = Input(shape=(self.input3_dim,), dtype='float32', name='input3')
         dense3 = Dense(50, activation='relu')(input3)
 
         merge_layer = concatenate([dense1, dense2, dense3])
