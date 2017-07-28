@@ -14,6 +14,8 @@ import random
 import itertools
 import csv
 import time
+import chessengine
+import pystockfish
 
 
 # Piece information to help build the features
@@ -272,14 +274,15 @@ def buildFeatureDB(fenFile, output):
 # Build a database of evaluation tags for a fen database using an evaluation function
 def buildLabelDB(fenFile, output, evalFunc):
     start_time = time.time()
-    with open(fenFile, "rb") as f:
-        fenstrings = np.array(f.readlines())
+    with open(fenFile, "r") as f:
+        fenstrings = f.readlines()
         labelArray = np.empty((len(fenstrings), 1))
         for index, s in enumerate(fenstrings):
             labelArray[index, :] = evalFunc(chess.Board(s))
             if index % 1000 == 0:
                 print(index)
                 print('Time:', time.time() - start_time)
+            #if index == 5000: break
     np.save(output, labelArray)
 
 # Slice a database into test and train sets using the provided ratio
@@ -412,7 +415,7 @@ class FeatDB(object):
 # shuffleCSV('fenDB.csv', 'randomFenDB.csv')
 
 # # Build a feature database
-buildFeatureDB('gameDB/randomFenDB.csv', 'gameDB/featDB.npy')
+#buildFeatureDB('gameDB/randomFenDB.csv', 'gameDB/featDB.npy')
 
 # # Build a database of stockfish labels
 engine = chessengine.BabyStockFish(depth=8)

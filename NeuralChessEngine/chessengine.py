@@ -117,7 +117,7 @@ class BabyStockFish(ChessEngine):
         # If the score is in moves to mate, return the value of the winning side
         elif "score mate" in info:
             mate = info[info.find("score mate ") + len("score mate "): endOfScoreIndex]
-            return 1 if mate > 0 else -1
+            return 1 if int(mate) > 0 else -1
 
         # Otherwise, there is some format I didn't account for!
         else:
