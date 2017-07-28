@@ -1,5 +1,5 @@
 
-from keras.layers import Input, Dense, Dropout, GaussianNoise
+from keras.layers import Input, Dense, Dropout, GaussianNoise, BatchNormalization
 from keras.layers.merge import concatenate
 from keras.models import Model
 from keras.models import model_from_json
@@ -23,17 +23,22 @@ class NeuralGiraffe:
     def build(self):
 
         input1 = Input(shape=(self.input1_dim, ), dtype='float32', name='input1')
+        #dense1 = BatchNormalization()(input1)
         dense1 = Dense(20, activation='relu')(input1)
 
         input2 = Input(shape=(self.input2_dim,), dtype='float32', name='input2')
+        #dense1 = BatchNormalization()(input1)
         dense2 = Dense(100, activation='relu')(input2)
 
         input3 = Input(shape=(self.input3_dim,), dtype='float32', name='input3')
+        #dense1 = BatchNormalization()(input1)
         dense3 = Dense(50, activation='relu')(input3)
 
         merge_layer = concatenate([dense1, dense2, dense3])
 
+        #reg1 = Dropout(0.3)(merge_layer)
         dense_final = Dense(75, activation='relu')(merge_layer)
+        #dense_final = Dense(40, activation='relu')(dense_final)
 
         output = Dense(1, activation='tanh')(dense_final)
 
