@@ -9,7 +9,7 @@ from keras.callbacks import ModelCheckpoint
 class NeuralGiraffe:
 
     def __init__(self, input1_dim=37, input2_dim=208, input3_dim=128, optimizer='nadam', loss='mae', metrics=['mae'],
-                 checkpoint=True, cp_filename='/checkpoint/chkp_giraffe.best.hdf5'):
+                 checkpoint=True, cp_filename='scheckpoint/chkp_giraffe.best.hdf5'):
         self.model = None
         self.input1_dim = input1_dim
         self.input2_dim = input2_dim
