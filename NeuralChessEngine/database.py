@@ -14,8 +14,8 @@ import random
 import itertools
 import csv
 import time
-import chessengine
-import pystockfish
+import NeuralChessEngine.chessengine
+import NeuralChessEngine.pystockfish
 
 
 # Piece information to help build the features
@@ -418,12 +418,12 @@ class FeatDB(object):
 #buildFeatureDB('gameDB/randomFenDB.csv', 'gameDB/featDB.npy')
 
 # # Build a database of stockfish labels
-engine = chessengine.BabyStockFish(depth=8)
-buildLabelDB("gameDB/randomFenDB.csv", "gameDB/stockfishLabelsDB.npy", engine.evaluate)
+#engine = chessengine.BabyStockFish(depth=8)
+#buildLabelDB("gameDB/randomFenDB.csv", "gameDB/stockfishLabelsDB.npy", engine.evaluate)
 
 # # Build training and test sets
-sliceTestData('gameDB/featDB.npy', 'gameDB/trainX.npy', 'gameDB/testX.npy', .2)
-sliceTestData('gameDB/stockfishLabelsDB.npy', 'gameDB/sfTrainY.npy', 'gameDB/sfTestY.npy', .2)
+#sliceTestData('gameDB/featDB.npy', 'gameDB/trainX.npy', 'gameDB/testX.npy', .2)
+#sliceTestData('gameDB/stockfishLabelsDB.npy', 'gameDB/sfTrainY.npy', 'gameDB/sfTestY.npy', .2)
 
 # # Build board training and test sets because I forgot to
-sliceTestBoards('gameDB/randomFenDB.csv', 'gameDB/trainBoards.npy', 'gameDB/testBoards.npy', .2)
+#sliceTestBoards('gameDB/randomFenDB.csv', 'gameDB/trainBoards.npy', 'gameDB/testBoards.npy', .2)

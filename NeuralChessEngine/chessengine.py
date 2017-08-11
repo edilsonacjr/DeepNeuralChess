@@ -7,7 +7,7 @@
 # Spring 2016
 
 from __future__ import print_function
-import pystockfish
+import NeuralChessEngine.pystockfish
 import chess
 import numpy as np
 
